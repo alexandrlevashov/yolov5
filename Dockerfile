@@ -1,11 +1,15 @@
 # Start FROM Nvidia PyTorch image https://ngc.nvidia.com/catalog/containers/nvidia:pytorch
 FROM nvcr.io/nvidia/pytorch:20.08-py3
 
+# https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel_20-03.html#rel_20-03
+#   Версии тут к какой куде пайторч
+#FROM nvcr.io/nvidia/pytorch:20.03-py3
+
 # Install dependencies
 RUN pip install --upgrade pip
 # COPY requirements.txt .
 # RUN pip install -r requirements.txt
-RUN pip install gsutil
+RUN pip install gsutil async-timeout  mmcv
 
 # Create working directory
 RUN mkdir -p /usr/src/app
